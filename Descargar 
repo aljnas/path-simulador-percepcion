@@ -1,0 +1,12 @@
+#!/bin/bash
+# 🚀 Script de arranque PATH Simulador de Percepción
+
+echo "Iniciando PATH Simulador de Percepción..."
+
+# Activar entorno virtual si se usa uno (opcional)
+# source /home/pi/path-env/bin/activate
+
+# Ejecutar servidor Flask en segundo plano
+nohup python3 control_remoto.py > flask_log.txt 2>&1 &
+
+echo "Servidor Flask iniciado en http://[IP_DE_TU_RASPBERRY_PI]:5000"
