@@ -1,0 +1,11 @@
+{
+  "escena": "playa",
+  "luz": {
+    "color": "#FFD580",
+    "modo": "oscilante",
+    "intensidad": 0.8
+  },
+  "sonido": "olas_suaves.mp3",
+  "olor": "brisa_marina",
+  "textura": "toalla_arenosa"
+}

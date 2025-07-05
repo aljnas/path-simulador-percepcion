@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Simulador de Percepción PATH</title>
+  <style>
+    body { font-family: sans-serif; background: #f0f0f0; padding: 20px; }
+    .scene { margin: 20px 0; }
+  </style>
+</head>
+<body>
+  <h1>🌈 Simulador de Percepción PATH</h1>
+  <p>Selecciona una escena para enviar al hardware:</p>
+
+  <div class="scene">
+    <label for="scene">Escena:</label>
+    <select id="scene">
+      <option value="playa">Playa</option>
+      <option value="helicoptero">Helicóptero</option>
+      <option value="ritual">Ritual de Reconexión</option>
+    </select>
+  </div>
+
+  <button onclick="generarJSON()">Generar JSON</button>
+  <pre id="output"></pre>
+
+  <script>
+    function generarJSON() {
+      const escena = document.getElementById('scene').value;
+      const configuraciones = {
+        playa: {
+          escena: "playa",
+          luz: { color: "#FFD580", modo: "oscilante", intensidad: 0.8 },
+          sonido: "olas_suaves.mp3",
+          olor: "brisa_marina",
+          textura: "toalla_arenosa"
+        },
+        helicoptero: {
+          escena: "helicoptero",
+          luz: { color: "#A0A0FF", modo: "parpadeo", intensidad: 0.5 },
+          sonido: "helicoptero_loop.mp3",
+          olor: "aceite_mecanico",
+          textura: "asiento_rigido"
+        },
+        ritual: {
+          escena: "ritual",
+          luz: { color: "#FFAA99", modo: "foco", intensidad: 0.4 },
+          sonido: "musica_suave.mp3",
+          olor: "lavanda",
+          textura: "objeto_sagrado"
+        }
+      };
+
+      const config = configuraciones[escena];
+      const output = JSON.stringify(config, null, 2);
+      document.getElementById("output").textContent = output;
+
+      // Opcional: enviar por POST a una Raspberry o guardar archivo
+    }
+  </script>
+</body>
+</html>
